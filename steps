@@ -1,0 +1,65 @@
+1.Create a S3 bucket and put objects in bucket through local PC using AWS CLI
+Sol) Step 1: Create IAM User with S3 Full Access
+
+
+Log in to the AWS Management Console.
+
+Go to Services > IAM.
+ 
+ 
+Click Users > Add user.
+
+Enter username and select Programmatic access.
+ 
+ 
+Click Next: Permissions
+Search for AmazonS3FullAccess policy and attach it.
+
+ 
+ 
+Click Next and then Create user.
+Download or copy the Access Key ID and Secret Access Key.
+
+
+Step 2: Install and Configure AWS CLI on Local PC Open PowerShell or Command Prompt.
+Run the command:
+aws configure
+Enter the Access Key ID, Secret Access Key, region (e.g., us-east-1), and output format (default or json).
+
+ 
+Step 3: Verify AWS CLI Connection Run:
+aws s3 ls
+You should see a list of existing S3 buckets (or none if none exist).
+
+ 
+
+
+Step 4: Create an S3 Bucket Using AWS CLI Run the command:
+aws s3api create-bucket --bucket your-unique-bucket-name --region us-east-1
+
+ 
+Verify creation by refreshing S3 buckets list in AWS Console or running: aws s3 ls
+ 
+ 
+
+
+
+
+
+Step 5: Upload Files to S3 Bucket Using AWS Console Open your S3 bucket in AWS Console.
+ 
+ 
+Click Upload.
+
+Add files and complete the upload.
+
+ 
+ 
+
+
+
+
+Step 6: Verify Objects in S3 Bucket Using AWS CLI Run:
+aws s3 ls s3://aws-cli-s3-snehitha --recursive --human-readable –summarize This lists all objects in the bucket with details.
+ 
+ 
